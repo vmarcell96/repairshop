@@ -31,7 +31,7 @@ export const customers = pgTable("customers", {
     .$onUpdate(() => new Date()),
 });
 
-export const tickets = pgTable("customers", {
+export const tickets = pgTable("tickets", {
   id: serial("id").primaryKey(),
   customerId: integer("customer_id")
     .notNull()
