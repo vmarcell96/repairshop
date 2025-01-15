@@ -20,6 +20,7 @@ type Props<S> = {
     // props that are properties of the generic type
     nameInSchema: keyof S & string;
     message: string;
+    disabled?: boolean;
 };
 
 // Generic S
@@ -27,7 +28,7 @@ export function CheckBoxWithLabel<S>({
     fieldTitle,
     nameInSchema,
     message,
-    ...props
+    disabled = false,
 }: Props<S>) {
     const form = useFormContext();
 
@@ -51,6 +52,7 @@ export function CheckBoxWithLabel<S>({
                                 checked={field.value}
                                 // custom element from shadcn so we have to delegate react hook form's onchange methed
                                 onCheckedChange={field.onChange}
+                                disabled={disabled}
                             />
                         </FormControl>
                         {message}
